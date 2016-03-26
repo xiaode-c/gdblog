@@ -1,0 +1,74 @@
+.admin-nav {
+  margin-bottom: 0px;
+
+  border-radius: 0px;
+}
+
+.admin-nav .container-fluid {
+  background: #FFFFFF;
+}
+
+.admin-body {
+  background-color: #F1F2F7;
+}
+
+.list-group {
+  background-color: #2A3542;
+  padding-left: 20px;
+  height: 100%;
+  width: 180px;
+
+
+}
+
+.list-group  a {
+  line-height: 150%;
+  background-color: #2A3542;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-left: 0px;
+  border-radius: 0px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.list-group a:visited {
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #fff;
+  display: block;
+}
+
+.list-group  a:hover {
+  padding-left: 50px;
+  padding-right: 50px;
+  background: #35404d;
+  color: #fff;
+  display: block;
+  border-radius: 0px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.all-things {
+  text-align: center;
+  margin-left: 100px;
+  margin-top: 200px;
+}
+
+
+#login-panel {
+    background-color: #c4e3f3;
+    padding: 50px 50px 50px 50px;
+    margin-top: 150px;
+    /*border: solid 1px #9d9d9d;*/
+    box-shadow: 0px 0px 5px #999999;
+    border-radius: 5px;
+}
+
+#login-body {
+    background-color: #a6e1ec;
+}

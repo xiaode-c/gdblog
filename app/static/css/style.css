@@ -1,0 +1,212 @@
+
+
+.body {
+	width: 100%;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+
+}
+
+
+.post-style .post .post-header {
+	text-align: center;
+	margin-bottom: 60px;
+}
+
+.post-style .post .post-title .post-title-link {
+		display: inline-block;
+    position: relative;
+    color: #555;
+    border-bottom: none;
+    line-height: 1.2;
+}
+
+
+.post-style .post .post-header span {
+	color: #999;
+	font-size: 12px;
+}
+
+.post-style .post .post-content {
+	font-family: "Microsoft YaHei", Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 2;
+  color: #555;
+}
+
+@media screen and (min-device-width: 900px) {
+	.page-left {
+		width: 18%;
+		background-color: #76D6E9;
+		text-align: center;
+		border-radius: 0px;
+		position: fixed;
+		left: 0px;
+		bottom: 0px;
+		height: 100%;
+	}
+
+	.icon img {
+		margin-top: 100px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
+
+	.desc {
+		width: 100%;
+		padding: 25px;
+		text-align: center;
+	}
+
+	.desc #motto {
+		font-size: 16px;
+		font-weight: bold;
+	}
+
+	.page-left .menu ul {
+		padding: 0px;
+		list-style: none;
+	}
+
+	.page-left .menu .menu-item {
+		width: 100%;
+		font-size: 16px;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	.page-left .menu .menu-item a, .right .posts .post .post-title a {
+		color: #555555;
+	    text-decoration: none;
+	}
+
+	.page-left .menu .menu-item a:hover, .right .posts .post .post-title a:hover {
+		color: black;
+	}
+
+	.page-left .menu .menu-item a:focus, .right .posts .post .post-title a:focus {
+	    color: black;
+	}
+
+	.contact {
+		text-align: center;
+		margin-top: 65%;
+	}
+}
+
+.page-right {
+	margin-left: 25%;
+	margin-right: 15%;
+	margin-top: 5%;
+}
+
+.body .login {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+}
+
+.post-more-link {
+	margin-top: 40px;
+	margin-bottom: 70px;
+	text-align: center;
+}
+
+
+/*.page-right .posts {
+	margin-top: 100px;
+}
+
+.page-right .posts .post .post-title {
+	font-size: 22px;
+}
+
+.page-right .posts .post .post-info {
+	font-weight: bolder;
+	font-size: 13px;
+}
+
+.page-right .posts .post .post-info .button {
+	float: right;
+}
+
+.page-right .posts .post .post-content {
+	text-indent: 2em;
+	font-size: 15px;
+	color: #2f2f2f;
+  font-weight: normal;
+  line-height: 1.4;
+}*/
+
+/*detail page*/
+.page-right .post-detail {
+	margin-top: 80px;
+	margin-bottom: 150px;
+}
+
+.page-right .post-detail .post-info {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.page-right .post-detail .post-info span {
+	color: #999;
+	font-size: 13px;
+}
+
+.page-right .post-detail .post-content {
+	margin-bottom: 50px;
+}
+
+.page-right .post-comments {
+	margin-bottom: 100px;
+}
+
+.pagination {
+	text-align: center;
+}
+
+//tags page
+.page-tags {
+	height: auto;
+	width: auto;
+}
+
+
+.page-tags .one-tag {
+	margin-top: 2%;
+	margin-bottom: 2%;
+	margin-left: 1%
+}
+
+@media screen and (max-device-width: 600px) {
+	.page-left {
+		text-align: center;
+		text-decoration: none;
+		width: 100%;
+		background-color: #76D6E9;
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+	.page-left > .icon img {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 10px;
+	}
+
+	.page-left .menu .menu-item {
+		list-style: none;
+		display: inline-block;
+		margin-left: 5px;
+	}
+	.page-left .menu .menu-item a {
+		color: #555555;
+		text-decoration: none;
+	}
+
+	.page-right{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+}

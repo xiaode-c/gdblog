@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+
+{% block css %}
+<!-- <link rel="stylesheet" href="{{url_for('static', filename="css/pygments.css")}}"> -->
+<style>
+pre code {
+  font-family: "Dejavu Sans Mono",monospace,cursive,sans-serif;
+}
+</style>
+
+<link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/solarized_dark.min.css">
+<script src="http://cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+{% endblock %}
+
+{% block content %}
+<div class="post-detail">
+      		<div class="post-info">
+      			<h1>{{post.title}}</h1>
+      			<span>发表于 {{post.pub_date}}   |   分类于 <a href="{{url_for("main.category", name=post.category.name)}}">{{post.category.name}}</a>  |   暂无评论</span>
+      		</div>
+      		<div class="post-content">
+            {{post.content|safe}}
+      		</div>
+      		<div class="tags">
+            {% for t in post.tags %}
+      			<a class="ui {{['green','yellow','orange','purple','teal','black','red']|random}} tag label" href="{{ url_for("main.tag", name=t.name) }}">{{t.name}}</a>
+            {% endfor %}
+      		</div>
+</div>
+
+      	<div class="post-comments">
+      			<div class="ui comments">
+
+            {% for c in post.comments %}
+  				  <div class="comment">
+  				    <a class="avatar">
+  				      <img src="/images/avatar/small/joe.jpg">
+  				    </a>
+  				    <div class="content">
+  				      <a class="author">{{c.author}}</a>
+  				      <div class="metadata">
+  				        <div class="date">{{c.created_date}}</div>
+  				      </div>
+  				      <div class="text">
+  				        <p>{{c.comment}}</p>
+  				      </div>
+  				      <div class="actions">
+  				        <a class="reply">回复</a>
+  				      </div>
+  				    </div>
+  				  </div>
+            {% endfor %}
+  				  <form class="ui reply form">
+  				    <div class="field">
+  				      <textarea></textarea>
+  				    </div>
+  				    <div class="ui primary submit labeled icon button">
+  				      <i class="icon edit"></i> 添加评论
+  				    </div>
+  				  </form>
+				</div>
+
+      </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% for post in posts %}
+<div class="post-style">
+  <article class="post">
+    <div class="post-header">
+      <h1 class="post-title"><a class="post-title-link" href="{{url_for("main.posts", title=post.title)}}">{{post.title}}</a></h1>
+      <span>发表于 {{post.pub_date}} <span>  |   <span> 分类于 <a href="{{url_for("main.category", name=post.category.name)}}">
+        {{post.category.name}}</a> </span>   |   <span> {% if post.comments.count()==0 %}暂无评论{% else %}{{post.comments.count()}}条评论{% endif %} </span>
+    </div>
+
+    <p class="post-content">
+      {{post.content|striptags|truncate(255,True)}}
+    </p>
+    <div class="post-more-link">
+      <a href="{{url_for("main.posts", title=post.title)}}"><div class="ui inverted purple button">More</div></a>
+    </div>
+  </article>
+  <div class="ui section divider"></div>
+</div>
+{% endfor %}

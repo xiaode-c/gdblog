@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename="css/semantic.min.css")}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="css/style.css")}}">
+    <script type="text/javascript" src="{{url_for('static', filename="js/jquery.min.js")}}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename="js/semantic.min.js")}}"></script>
+    {% block css %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="body">
+       <!-- <div class="login">
+				<div class="ui blue floating dropdown labeled icon button">
+						<i class="user icon"></i>
+						<span class="text">User</span>
+				  <div class="text"></div>
+					  <div class="menu">
+					    <div class="header"></div>
+					    <div class="item">login in</div>
+					    <div class="divider"></div>
+					    <div class="item">login up</div>
+					  </div>
+				</div>
+		  </div> -->
+
+
+
+             <div class="page-left">
+                <div class="icon">
+                  <a href="{{url_for("main.index")}}"><img class="ui circular tiny image" src="{{url_for("static", filename="img/avtar.png")}}"></a>
+                </div>
+
+                <div class="desc">
+                  <i id="motto">人生苦短，我用python</i>
+                </div>
+
+                <div class="menu">
+                  <ul >
+                    <li class="menu-item"><a href="{{url_for("main.index")}}" ><i class="home icon"></i> 首页</a></li>
+                    <li class="menu-item"><a href="{{url_for("main.categorys")}}"><i class="list layout icon"></i> 分类</a></li>
+                    <li class="menu-item"><a href=""><i class="archive icon"></i> 归档</a></li>
+                    <li class="menu-item"><a href="{{url_for("main.tags")}}"><i class="tags icon"></i> 标签</a></li>
+                    <li class="menu-item"><a href=""><i class="bookmark icon"></i> 关于</a></li>
+                  </ul>
+                </div>
+
+                <div class="login" style="color: black;">
+                  <a href="{{url_for('admin.login')}}">登录</a>
+                </div>
+
+                 <div class="contact">
+                      <div class="ui blue circular icon button">
+                        <i class=" qq icon"></i>
+                      </div>
+                      <div class="ui green circular icon button">
+                        <i class="mail icon"></i>
+                      </div>
+                      <div class="ui yellow circular icon button">
+                        <i class="rss square white icon"></i>
+                      </div>
+                      <div class="ui black circular icon button">
+                        <i class="github icon"></i>
+                      </div>
+                </div>
+              </div>
+
+          <div class="page-right">
+            {% block content %}{% endblock %}
+          </div>
+
+
+      </div>
+
+
+{% block footer %}
+{% endblock %}
+
+    <script type="text/javascript">
+    		$('.dropdown')
+    		  .dropdown({
+    		    // 你可以使用任何过渡
+    		    transition: 'drop'
+    		  })
+    		;
+    </script>
+    <script type="text/javascript">
+    	$(function(){
+    		$('.nav_button').on('click', function(e){
+    			  e.preventDefault();
+    			  $(this).parent().toggleClass('nav--active');
+    			});
+    	})
+    </script>
+
+  </body>
+</html>

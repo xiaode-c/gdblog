@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<script type="text/javascript" src="{{url_for('static', filename='js/lazyFade.js')}}"></script>
+
+<div class="posts">
+  {% include '_post.html' %}
+</div>
+
+<div class="pagination">
+  {{macros.pagination_widget(pagination, 'main.index')}}
+</div>
+
+
+<script type="text/javascript">
+
+$('.posts .post').lazyFade({
+    reverse: false,
+    duration: 500,
+    delay: 100,
+    opacity: {
+        start: 0.01,
+        end: 1
+    }
+});
+
+</script>
+
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}

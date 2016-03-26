@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/admin-style.css') }}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body id="login-body">
+
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4" id="login-panel">
+
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                {{ message }}
+                </div>
+            {% endfor %}
+
+
+
+        <form role="form" method="post">
+          <div class="form-group">
+        {{form.username.label}}{{form.username(class="form-control",placeholder="Username")}}
+<!--
+            <label for="exampleInputEmail1">用户名</label>
+            <input type="text" class="form-control"  placeholder="Username" name="username">
+-->
+          </div>
+          <div class="form-group">
+          {{form.password.label}}{{form.password(class="form-control",placeholder="Password")}}
+<!--
+            <label for="exampleInputPassword1">密码</label>
+            <input type="password" class="form-control" placeholder="Password" name="password">
+-->
+          </div>
+          <div class="form-group">
+              {{form.remember_me()}}
+               {{form.remember_me.label}}
+
+<!--
+              <label>
+                  <input type="checkbox"  name="remember"> 记住
+              </label>
+-->
+          </div>
+              {{form.submit(class="btn btn-default")}}
+<!--          <button type="submit" class="btn btn-default">登录</button>-->
+        </form>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+
+</body>
+</html>

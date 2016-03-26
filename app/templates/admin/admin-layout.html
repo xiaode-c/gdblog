@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{{url_for('static', filename="css/semantic.min.css")}}">
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/admin-style.css') }}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+{% block scriptfiles %}
+{% endblock %}
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-default admin-nav">
+          <div class="container-fluid">
+           <div class="navbar-header">
+            <!-- 移动 -->
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="/">DashBord</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li><a href="#">学习笔记 <span class="sr-only">(current)</span></a></li>
+
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">文章分类 <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">python</a></li>
+                    <li><a href="#">Bootstrap</a></li>
+                    <li><a href="#">node.js</a></li>
+                    <!--   下面这是分割线     -->
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">web前段</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Linux</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+
+
+              <ul class="nav navbar-nav navbar-right" style="display: inline;">
+                <form class="navbar-form navbar-left" >
+                    <a href="{{ url_for('admin.logout') }}"><button type="button" class="btn btn-default" name="logout">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 登出
+                    </button></a>
+                </form>
+
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+
+    <div id="body" class="admin-body">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group admin-sidebar" >
+                <a href="{{url_for("admin.index")}}" class="list-group-item"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  &nbsp;首页</a>
+              <a href="{{url_for("admin.posts")}}" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span>  &nbsp;文章</a>
+              <a href="{{url_for("admin.comments")}}" class="list-group-item"><span class="glyphicon glyphicon-comment"></span>  &nbsp;评论</a>
+              <a href="{{url_for("admin.categorys")}}" class="list-group-item"><span class="glyphicon glyphicon-list-alt"></span>  &nbsp;分类</a>
+              <a href="{{url_for("admin.tags")}}" class="list-group-item"><span class="glyphicon glyphicon-tags"></span>  &nbsp;标签</a>
+              <a href="{{url_for("admin.users")}}" class="list-group-item"><span class="glyphicon glyphicon-user"></span>  &nbsp;用户</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-cog"></span>  &nbsp;设置</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-file"></span>  &nbsp;主题</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-inbox"></span>  &nbsp;插件</a>
+
+            </div>
+        </div>
+        <div class="col-md-10" id="detail">
+          <div class="detail">
+            {% block content %}
+            {% endblock %}
+          </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% block scripts %}
+{% endblock %}
+
+<script src="http://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{url_for('static', filename="js/semantic.min.js")}}"></script>
+</body>
+</body>
+</html>

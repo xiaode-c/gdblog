@@ -1,0 +1,94 @@
+{% extends "admin/admin-layout.html" %}
+{% block scriptfiles %}
+<link rel="stylesheet" href="{{url_for("static", filename="css/tokenfield-typeahead.min.css")}}" >
+<link rel="stylesheet" href="{{url_for("static", filename="css/bootstrap-tokenfield.min.css")}}">
+<script src="{{ url_for("static", filename="js/bootstrap-tokenfield.min.js") }}"></script>
+
+<style>
+	.input-markdown {
+		width: 100%;
+		height: 400px;
+		padding: 5px;
+	}
+
+	.flask-pagedown-preview {
+		width: 100%;
+		height: 400px;
+		background-color: white;
+		border: 1px solid black;
+		padding: 5px;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+
+<form class="form-horizontal" method=post>
+	{{ form.hidden_tag() }}
+             <div class="form-group">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+		                 {% for message in get_flashed_messages() %}
+		                    <div class="alert alert-danger">
+		                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+		                    {{ message }}
+		                    </div>
+		                 {% endfor %}
+
+										 <div class="form-group">
+			                   {{ form.title(id="title", class="form-control", placeholder=form.title.label.text)}}
+			               </div>
+
+										 <div class="form-group">
+														<div class="row">
+																<div class="col-md-6">
+																		{{ form.content(only_input=True, class="input-markdown", placeholder=form.content.label.text) }}
+																</div>
+																<div class="col-md-6">
+																	 {{ form.content(only_preview=True)}}
+																</div>
+														</div>
+										 </div>
+
+										 <div class="form-group">
+			 									<div class="row">
+			 										<div class="col-md-6">
+			 												{{ form.category(id="category", class="form-control", placeholder=form.category.label.text) }}
+			 										</div>
+			 										<div class="col-md-6">
+			 											 {{ form.tags(type="text", class="token-input ui-autocomplete-input", id="tokenfield", autocomplete="off", placeholder=form.tags.label.text) }}
+			 										</div>
+			 									</div>
+			               </div>
+
+										 <div class="form-group">
+			 										{{ form.submit(class="btn btn-default") }}
+			               </div>
+                 </div>
+             </div>
+</form>
+
+{% endblock %}
+
+{% block scripts %}
+{{ pagedown.include_pagedown() }}
+<script type="text/javascript">
+			$('#tokenfield').tokenfield({
+					autocomplete: {
+						source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
+						delay: 100
+					},
+					showAutocompleteOnFocus: true
+			})
+</script>
+<!-- <script src='{{ url_for('static', filename='lib/jquery/jquery.min.js')}}'></script>
+<script src='{{ url_for('static', filename='lib/marked/marked.min.js')}}'></script>
+<script src='{{ url_for('static', filename='lib/highlight/highlight.min.js')}}'></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src='{{ url_for('static', filename='js/mdeditor.js')}}'></script>
+<script>
+	$('#editor').initEditor();
+</script> -->
+{% endblock %}

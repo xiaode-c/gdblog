@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<script type="text/javascript" src="{{url_for('static', filename='js/lazyFade.js')}}"></script>
+
+<div class="categorys">
+  {% for category in categorys %}
+  <div class="category">
+    <div class="ui vertical menu" style="width:100%;">
+      <a class="active teal item" href="{{url_for("main.category", name=category.name)}}">
+        {{category.name}}
+        <div class="ui teal label">
+          <!-- <a class="ui black circular label" href="{{url_for("main.category", name=category.name)}}"> -->
+            {{category.posts.count()}}
+          <!-- </a> -->
+        </div>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+
+<script type="text/javascript">
+
+$('.categorys .category').lazyFade({
+    reverse: false,
+    duration: 500,
+    delay: 100,
+    opacity: {
+        start: 0.01,
+        end: 1
+    }
+});
+
+</script>
+
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}

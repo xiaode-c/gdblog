@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% import "_macros.html" as macros %}
+
+{% block content %}
+<script type="text/javascript" src="{{url_for('static', filename='js/lazyFade.js')}}"></script>
+
+<div class="page-tags">
+  {% for tag in tags %}
+    <a class="ui {{['green','yellow','orange','purple','teal','black','red']|random}} label one-tag" href="{{url_for("main.tag", name=tag.name)}}">{{tag.name}}</a>
+  {% endfor %}
+</div>
+
+
+<script type="text/javascript">
+
+$('.page-tags .one-tag').lazyFade({
+    reverse: false,
+    duration: 500,
+    delay: 100,
+    opacity: {
+        start: 0.01,
+        end: 1
+    }
+});
+
+</script>
+
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}
